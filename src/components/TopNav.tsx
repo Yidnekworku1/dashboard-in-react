@@ -1,18 +1,27 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { RiUserLine, RiLogoutBoxLine, RiSettings4Line, RiNotification3Line, RiSunLine, RiContrast2Line } from 'react-icons/ri';
 
 const TopNav = () => {
   const [isProfileOpen, setIsProfileOpen] = useState(false);
-  const [theme, setTheme] = useState<'light' | 'night'>('light');
+  const [theme, setTheme] = useState<'light' | 'night'>(() => {
+    const saved = localStorage.getItem('theme');
+    return saved === 'night' ? 'night' : 'light';
+  });
+
+  useEffect(() => {
+    if (theme === 'night') {
+      document.body.classList.add('night-mode');
+    } else {
+      document.body.classList.remove('night-mode');
+    }
+    localStorage.setItem('theme', theme);
+  }, [theme]);
 
   // Update body class on theme change
   // Toggle theme: light <-> night
   const handleThemeToggle = () => {
-    const nextTheme: 'light' | 'night' = theme === 'light' ? 'night' : 'light';
-    setTheme(nextTheme);
-    document.body.classList.remove('night-mode');
-    if (nextTheme === 'night') document.body.classList.add('night-mode');
+    setTheme(theme === 'light' ? 'night' : 'light');
   };
 
   return (
