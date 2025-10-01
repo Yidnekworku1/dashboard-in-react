@@ -9,7 +9,8 @@ import {
   RiMenuFoldLine,
   RiMenuUnfoldLine,
   RiListCheck,
-  RiStore2Line
+  RiStore2Line,
+  RiCommunityLine
 } from 'react-icons/ri';
 
 const Sidebar = () => {
@@ -53,9 +54,9 @@ const Sidebar = () => {
           <RiListCheck />
           {!isCollapsed && <span>Categories</span>}
         </NavLink>
-        <NavLink to="/products" className={({ isActive }) => `sidebar-item ${isActive ? 'active' : ''}`}>
-          <RiStore2Line />
-          {!isCollapsed && <span>Products</span>}
+        <NavLink to="/tenants" className={({ isActive }) => `sidebar-item ${isActive ? 'active' : ''}`}>
+          <RiCommunityLine />
+          {!isCollapsed && <span>Tenants</span>}
         </NavLink>
         <NavLink to="/settings" className={({ isActive }) => `sidebar-item ${isActive ? 'active' : ''}`}>
           <RiSettings3Line />

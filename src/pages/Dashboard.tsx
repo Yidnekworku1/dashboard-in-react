@@ -1,15 +1,36 @@
 import React from 'react';
+import Button from '../components/Button';
+import { RiAddLine } from 'react-icons/ri';
 const Dashboard = () => {
   const [inventoryItems, setInventoryItems] = React.useState([
     { id: 1, name: 'Item 1', quantity: 10, category: 'Category A' },
     { id: 2, name: 'Item 2', quantity: 15, category: 'Category B' },
+    { id: 2, name: 'Item 2', quantity: 15, category: 'Category B' },
+    { id: 2, name: 'Item 2', quantity: 15, category: 'Category B' },
+    { id: 2, name: 'Item 2', quantity: 15, category: 'Category B' },
+    { id: 2, name: 'Item 2', quantity: 15, category: 'Category B' },
+    { id: 2, name: 'Item 2', quantity: 15, category: 'Category B' },
+    { id: 2, name: 'Item 2', quantity: 15, category: 'Category B' },
+    { id: 2, name: 'Item 2', quantity: 15, category: 'Category B' },
+    { id: 2, name: 'Item 2', quantity: 15, category: 'Category B' },
+    { id: 2, name: 'Item 2', quantity: 15, category: 'Category B' },
+    { id: 2, name: 'Item 2', quantity: 15, category: 'Category B' },
+    { id: 3, name: 'Item 3', quantity: 8, category: 'Category A' },
+    { id: 4, name: 'Item 4', quantity: 20, category: 'Category C' },
+    { id: 5, name: 'Item 5', quantity: 5, category: 'Category B' },
     // Add more sample items as needed
   ]);
 
   return (
     <div className="p-4">
       <h1 className="text-2xl font-bold mb-4">Dashboard</h1>
-
+      <Button
+        onClick={() => alert('Add button clicked!')}
+        className="mb-4"
+        icon={<RiAddLine />}
+      >
+        Add
+      </Button>
       <div className="grid gap-4">
         {/* Summary Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">

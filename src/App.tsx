@@ -6,6 +6,7 @@ import Dashboard from './pages/Dashboard';
 import Categories from './pages/Categories';
 import UserManagement from './pages/UserManagement';
 import TopNav from './components/TopNav';
+import Tenants from './pages/Tenants';
 const App = () => {
   return (
     <Router>
@@ -18,6 +19,7 @@ const App = () => {
               <Route path="/usermanagement" element={<UserManagement />} />
               <Route path="/" element={<Dashboard />} />
               <Route path="/categories" element={<Categories />} />
+              <Route path="/tenants" element={<Tenants />} />
             </Routes>
           </main>
         </div>

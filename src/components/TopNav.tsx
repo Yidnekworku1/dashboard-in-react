@@ -25,16 +25,18 @@ const TopNav = () => {
       </div>
 
       {/* Right side - Navigation Items */}
-      <div className="flex items-center space-x-4">
+      <div className="flex items-center gap-4">
         {/* Theme Toggle Icon */}
-        <button
-          className="p-2 rounded-full hover:bg-gray-100 transition-colors"
-          onClick={handleThemeToggle}
-          title={theme === 'light' ? 'Switch to Night Mode' : 'Switch to Light Mode'}
-        >
-          {theme === 'light' && <RiSunLine className="text-xl text-yellow-500" />}
-          {theme === 'night' && <RiContrast2Line className="text-xl text-gray-700" />}
-        </button>
+        <div className="flex items-center mr-2">
+          <button
+            className="p-2 rounded-full hover:bg-gray-100 transition-colors"
+            onClick={handleThemeToggle}
+            title={theme === 'light' ? 'Switch to Night Mode' : 'Switch to Light Mode'}
+          >
+            {theme === 'light' && <RiSunLine className="text-xl text-yellow-500" />}
+            {theme === 'night' && <RiContrast2Line className="text-xl text-gray-700" />}
+          </button>
+        </div>
         {/* Notifications */}
         <button className="p-2 hover:bg-gray-100 rounded-full relative">
           <RiNotification3Line className="text-gray-600 text-xl" />
