@@ -32,6 +32,16 @@ const Sidebar = () => {
     }
   }, [isMobile]);
 
+  const sidebarItems = [
+    { label: 'Dashboard', to: '/', icon: <RiDashboardLine />, key: 'dashboard' },
+    { label: 'User Management', to: '/usermanagement', icon: <RiUser3Line />, key: 'usermanagement' },
+    { label: 'Categories', to: '/categories', icon: <RiListCheck />, key: 'categories' },
+    { label: 'Tenants', to: '/tenants', icon: <RiCommunityLine />, key: 'tenants' },
+    { label: 'Settings', to: '/settings', icon: <RiSettings3Line />, key: 'settings' },
+    { label: 'Messages', to: '/messages', icon: <RiMessage2Line />, key: 'messages' },
+    { label: 'Help', to: '/help', icon: <RiQuestionLine />, key: 'help' },
+  ];
+
   return (
     <aside className={`sidebar ${isCollapsed ? 'collapsed' : ''}`}>
       <button
@@ -42,34 +52,12 @@ const Sidebar = () => {
         {isCollapsed ? <RiMenuUnfoldLine /> : <RiMenuFoldLine />}
       </button>
       <ul className="sidebar-nav">
-        <NavLink to="/" className={({ isActive }) => `sidebar-item ${isActive ? 'active' : ''}`}>
-          <RiDashboardLine />
-          {!isCollapsed && <span>Dashboard</span>}
-        </NavLink>
-        <NavLink to="/usermanagement" className={({ isActive }) => `sidebar-item ${isActive ? 'active' : ''}`}>
-          <RiUser3Line />
-          {!isCollapsed && <span>User Management</span>}
-        </NavLink>
-        <NavLink to="/categories" className={({ isActive }) => `sidebar-item ${isActive ? 'active' : ''}`}>
-          <RiListCheck />
-          {!isCollapsed && <span>Categories</span>}
-        </NavLink>
-        <NavLink to="/tenants" className={({ isActive }) => `sidebar-item ${isActive ? 'active' : ''}`}>
-          <RiCommunityLine />
-          {!isCollapsed && <span>Tenants</span>}
-        </NavLink>
-        <NavLink to="/settings" className={({ isActive }) => `sidebar-item ${isActive ? 'active' : ''}`}>
-          <RiSettings3Line />
-          {!isCollapsed && <span>Settings</span>}
-        </NavLink>
-        <NavLink to="/messages" className={({ isActive }) => `sidebar-item ${isActive ? 'active' : ''}`}>
-          <RiMessage2Line />
-          {!isCollapsed && <span>Messages</span>}
-        </NavLink>
-        <NavLink to="/help" className={({ isActive }) => `sidebar-item ${isActive ? 'active' : ''}`}>
-          <RiQuestionLine />
-          {!isCollapsed && <span>Help</span>}
-        </NavLink>
+        {sidebarItems.map(item => (
+          <NavLink key={item.key} to={item.to} className={({ isActive }) => `sidebar-item ${isActive ? 'active' : ''}`}>
+            {item.icon}
+            {!isCollapsed && <span>{item.label}</span>}
+          </NavLink>
+        ))}
       </ul>
     </aside>
   );
