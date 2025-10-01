@@ -1,37 +1,39 @@
 import React, { useState } from 'react';
 import Button from '../components/Button';
-import { RiAddLine } from 'react-icons/ri';
 import Modal from '../components/Modal';
+import { RiAddLine } from 'react-icons/ri';
 
-const Tenants = () => {
+const Properties = () => {
     const isNight = typeof document !== 'undefined' && document.body.classList.contains('night-mode');
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [tenantName, setTenantName] = useState('');
+    const [propertyName, setPropertyName] = useState('');
 
-    const handleAddTenant = () => {
+    const handleAddProperty = () => {
         setIsModalOpen(true);
     };
+
     const handleModalClose = () => {
         setIsModalOpen(false);
-        setTenantName('');
+        setPropertyName('');
     };
+
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        // TODO: Add Tenant logic here
-        alert(`Property added: ${tenantName}`);
+        // TODO: Add property logic here
+        alert(`Property added: ${propertyName}`);
         handleModalClose();
     };
 
     return (
         <div className='p-4'>
             <div className="flex justify-between items-center mb-6">
-                <h1 className="text-2xl font-bold">Tenants</h1>
+                <h1 className="text-2xl font-bold">Properties</h1>
                 <Button
-                    onClick={handleAddTenant}
+                    onClick={handleAddProperty}
                     className="mb-4"
                     icon={<RiAddLine />}
                 >
-                    Add Tenant
+                    Add Property
                 </Button>
             </div>
             <Modal isOpen={isModalOpen} onClose={handleModalClose} title="Add Property">
@@ -39,9 +41,9 @@ const Tenants = () => {
                     <input
                         type="text"
                         className="border rounded px-3 py-2 bg-inherit"
-                        placeholder="Tenant Name"
-                        value={tenantName}
-                        onChange={e => setTenantName(e.target.value)}
+                        placeholder="Property Name"
+                        value={propertyName}
+                        onChange={e => setPropertyName(e.target.value)}
                         required
                     />
                     <div className="flex gap-2 justify-end">
@@ -64,7 +66,7 @@ const Tenants = () => {
                 </form>
             </Modal>
         </div>
-    )
+    );
 }
 
-export default Tenants
+export default Properties

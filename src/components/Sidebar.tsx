@@ -10,7 +10,11 @@ import {
   RiMenuUnfoldLine,
   RiListCheck,
   RiStore2Line,
-  RiCommunityLine
+  RiCommunityLine,
+  RiHome2Line,
+  RiMoneyDollarCircleLine,
+  RiFileChartLine,
+  RiFileList3Line
 } from 'react-icons/ri';
 
 const Sidebar = () => {
@@ -37,6 +41,10 @@ const Sidebar = () => {
     { label: 'User Management', to: '/usermanagement', icon: <RiUser3Line />, key: 'usermanagement' },
     { label: 'Categories', to: '/categories', icon: <RiListCheck />, key: 'categories' },
     { label: 'Tenants', to: '/tenants', icon: <RiCommunityLine />, key: 'tenants' },
+    { label: 'Properties', to: '/properties', icon: <RiHome2Line />, key: 'properties' },
+    { label: 'Rents', to: '/rents', icon: <RiMoneyDollarCircleLine />, key: 'rents' },
+    { label: 'Invoice', to: '/invoice', icon: <RiFileList3Line />, key: 'invoice' },
+    { label: 'Report', to: '/reports', icon: <RiFileChartLine />, key: 'report' },
     { label: 'Settings', to: '/settings', icon: <RiSettings3Line />, key: 'settings' },
     { label: 'Messages', to: '/messages', icon: <RiMessage2Line />, key: 'messages' },
     { label: 'Help', to: '/help', icon: <RiQuestionLine />, key: 'help' },

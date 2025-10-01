@@ -7,6 +7,8 @@ import Categories from './pages/Categories';
 import UserManagement from './pages/UserManagement';
 import TopNav from './components/TopNav';
 import Tenants from './pages/Tenants';
+import Properties from './pages/Properties';
+import Reports from './pages/Reports';
 const App = () => {
   return (
     <Router>
@@ -20,6 +22,8 @@ const App = () => {
               <Route path="/" element={<Dashboard />} />
               <Route path="/categories" element={<Categories />} />
               <Route path="/tenants" element={<Tenants />} />
+              <Route path="/properties" element={<Properties />} />
+              <Route path="/reports" element={<Reports />} />
             </Routes>
           </main>
         </div>
