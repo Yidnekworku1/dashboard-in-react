@@ -1,12 +1,22 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { RiUserLine, RiLogoutBoxLine, RiSettings4Line, RiNotification3Line } from 'react-icons/ri';
+import { RiUserLine, RiLogoutBoxLine, RiSettings4Line, RiNotification3Line, RiSunLine, RiContrast2Line } from 'react-icons/ri';
 
 const TopNav = () => {
   const [isProfileOpen, setIsProfileOpen] = useState(false);
+  const [theme, setTheme] = useState<'light' | 'night'>('light');
+
+  // Update body class on theme change
+  // Toggle theme: light <-> night
+  const handleThemeToggle = () => {
+    const nextTheme: 'light' | 'night' = theme === 'light' ? 'night' : 'light';
+    setTheme(nextTheme);
+    document.body.classList.remove('night-mode');
+    if (nextTheme === 'night') document.body.classList.add('night-mode');
+  };
 
   return (
-    <nav className="bg-white shadow-sm px-6 py-3 flex justify-between items-center fixed w-full top-0 z-50" >
+    <nav className={`topnav shadow-sm px-6 py-3 flex justify-between items-center fixed w-full top-0 z-50`}>
       {/* Left side - Brand/Logo */}
       <div className="flex items-center">
         <Link to="/" className="text-xl font-bold text-gray-800">
@@ -16,6 +26,15 @@ const TopNav = () => {
 
       {/* Right side - Navigation Items */}
       <div className="flex items-center space-x-4">
+        {/* Theme Toggle Icon */}
+        <button
+          className="p-2 rounded-full hover:bg-gray-100 transition-colors"
+          onClick={handleThemeToggle}
+          title={theme === 'light' ? 'Switch to Night Mode' : 'Switch to Light Mode'}
+        >
+          {theme === 'light' && <RiSunLine className="text-xl text-yellow-500" />}
+          {theme === 'night' && <RiContrast2Line className="text-xl text-gray-700" />}
+        </button>
         {/* Notifications */}
         <button className="p-2 hover:bg-gray-100 rounded-full relative">
           <RiNotification3Line className="text-gray-600 text-xl" />

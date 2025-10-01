@@ -1,3 +1,42 @@
+/* Night mode styles */
+.night-mode {
+  background: #0a0a0a;
+  color: #b3b3b3;
+  transition: background 0.3s, color 0.3s;
+}
+
+.night-mode .topnav {
+  background: #111;
+  color: #b3b3b3;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+.night-mode .sidebar {
+  background: #181818;
+  color: #b3b3b3;
+  border-right: 1px solid #222;
+}
+
+.night-mode .sidebar-item {
+  color: #b3b3b3;
+}
+
+.night-mode .sidebar-item.active {
+  background: #161d2e;
+  color: #fff;
+}
+
+.night-mode .main-content {
+  background: #0a0a0a;
+  color: #b3b3b3;
+}
+
+.night-mode .sidebar-item:hover {
+  background-color: #4b4a4a;
+  color: #cfcfcf;
+}
+
+
 .sidebar.collapsed~.topnav {
   left: 70px;
 }
